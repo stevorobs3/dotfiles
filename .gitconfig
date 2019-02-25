@@ -1,0 +1,55 @@
+[user]
+        name = Steve Robinson-Burns
+        email = steve.robinsonburns@previ.se
+[core]
+    editor = vim
+[push]
+    default = current
+[merge]
+    tool = intellij
+[mergetool "intellij"]
+    cmd = /Applications/IntelliJ\\ IDEA.app/Contents/MacOS/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+[diff]
+    tool = intellij
+[difftool "intellij"]
+    cmd = /Applications/IntelliJ\\ IDEA.app/Contents/MacOS/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+
+[alias]
+  a = add
+  aw = !git add . && git commit -m WIP
+  awp = !git aw && git p
+  acf = !git add . && git cf
+  acfp = !git acf && git p
+  b = branch
+  co = commit -v
+  coa = commit -v --amend
+  c = checkout
+  cl = clone
+  cm = checkout master
+  cf = !git commit --fixup $(git rev-parse HEAD)
+  d = diff
+  dn = difftool --no-ext-diff
+  g = grep
+  f = fetch
+  m = mergetool
+  mc = merge --continue
+  ma = merge --abort
+  l = log --oneline --decorate
+  ls = ls-files
+  p = push
+  pf = push --force-with-lease
+  pu = pull
+  ri = rebase -i
+  rih = !git rebase -i HEAD~${1}
+  rom = rebase origin/master
+  ra = rebase --abort
+  rc = rebase --continue
+  rs = rebase --skip
+  r = remote -v
+  s = status
+  cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
+  branchd = !git branch -d $1 && git push origin :$1
+  branchhd = !git branch -D $1; git push origin :$1

@@ -1,0 +1,1 @@
+A simple dotfiles projects for common aliases.
