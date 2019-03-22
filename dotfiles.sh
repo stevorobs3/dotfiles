@@ -36,3 +36,11 @@ export s="--summarize"
 export hr="--human-readable --recursive"
 export hs="--human-readable --summarize"
 export rs="--recursive --summarize"
+
+export REPOS_ROOT=/Users/steverobinson-burns/dev
+
+export LEIN_USERNAME=steve.robinsonburns@previ.se
+export LSCOLORS=cxfxcxdxbxcgcdabagacad
+
+export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS
+cd ~/dev
