@@ -51,5 +51,5 @@
   cp = cherry-pick
   cpa = cherry-pick --abort
   cpc = cherry-pick --continue
-  branchd = !git branch -d $1 && git push origin $1 -d
-  branchhd = !git branch -D $1 && git push origin $1 -d
+  branchd = !git branch -d $1; git push origin $1 -d
+  branchhd = !git branch -D $1; git push origin $1 -d
