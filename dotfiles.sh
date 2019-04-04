@@ -45,8 +45,9 @@ export LSCOLORS=cxfxcxdxbxcgcdabagacad
 
 export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:~/bin/
 
-export LEIN_PASSWORD=
-export JFROG_TOKEN=$LEIN_PASSWORD
+#export LEIN_PASSWORD=???
+
+#export JFROG_TOKEN=$LEIN_PASSWORD
 
 export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
 
@@ -63,6 +64,27 @@ local_build() {
   
   cd ~/dev/${service_name} && lein uberjar && ./build-docker-dist.sh && cd docker && docker build -t ${service_name}-local . && cd -
 }
+
+function ssh-with-tunnel {
+  host=$1
+  tunnel=""
+
+  for port in "${@:2}"
+  do
+    tunnel="$tunnel -L 1$port:localhost:$port"
+  done
+
+  if [ -z "$tunnel" ]
+    then
+      echo "Connecting to $host - without tunnelling"
+      ssh $host
+    else
+      echo "Connecting to $host - tunnelling $tunnel"
+      ssh $host $tunnel
+    fi
+}
+
+
 
 source ~/.inputrc
 
