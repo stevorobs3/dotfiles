@@ -55,7 +55,7 @@ export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
 local_build() {
   if [ -z "$1" ]
   then
-    service_name=${pwd##*/}
+    service_name=${PWD##*/}
   else
     service_name=$1
   fi
