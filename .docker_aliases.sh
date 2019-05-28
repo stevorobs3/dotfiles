@@ -56,7 +56,7 @@ alias dvp='docker volume prune -f'
 alias dcp='docker container prune -f'
 alias dnp='docker network prune -f'
 alias dap='docker volume prune -f; docker container prune -f; docker network prune -f; docker image prune -f'
-
+alias dsp='docker system prune --volumes -f'
 
 # clean up images and containers
 alias docker-clean-images='docker rmi $(docker images -a --filter=dangling=true -q)'
