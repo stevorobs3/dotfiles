@@ -51,20 +51,6 @@ export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/C
 
 export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
 
-
-local_build() {
-  if [ -z "$1" ]
-  then
-    service_name=${PWD##*/}
-  else
-    service_name=$1
-  fi
-
-  echo got $service_name
-  
-  cd ~/dev/${service_name} && lein uberjar && ./build-docker-dist.sh && cd docker && docker build -t ${service_name}-local . && cd -
-}
-
 function ssh-with-tunnel {
   host=$1
   tunnel=""
@@ -84,6 +70,7 @@ function ssh-with-tunnel {
     fi
 }
 
+alias k=kubectl
 
 
 source ~/.inputrc
