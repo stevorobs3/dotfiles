@@ -1,3 +1,5 @@
+#! /bin/bash
+
 if [ -f .docker_aliases.sh ]; then
     source .docker_aliases.sh
 fi
@@ -14,11 +16,6 @@ parse_git_branch() {
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
 function_exists() {
     declare -f -F $1 > /dev/null
     return $?
@@ -27,7 +24,7 @@ function_exists() {
 for al in `__git_get_config_variables "alias"`; do
     alias g$al="git $al"
     complete_func=_git_$(__git_aliased_command $al)
-    function_exists $complete_fnc && __git_complete g$al $complete_func
+    __git_complete g$al $complete_func
 done
 
 export hrs="--human-readable --recursive --summarize"
@@ -38,16 +35,7 @@ export hr="--human-readable --recursive"
 export hs="--human-readable --summarize"
 export rs="--recursive --summarize"
 
-export REPOS_ROOT=/Users/steverobinson-burns/dev
-
-export LEIN_USERNAME=steve.robinsonburns@previ.se
 export LSCOLORS=cxfxcxdxbxcgcdabagacad
-
-export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:~/bin/
-
-#export LEIN_PASSWORD=???
-
-#export JFROG_TOKEN=$LEIN_PASSWORD
 
 export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
 
@@ -69,9 +57,6 @@ function ssh-with-tunnel {
       ssh $host $tunnel
     fi
 }
-
-alias k=kubectl
-
 
 source ~/.inputrc
 
