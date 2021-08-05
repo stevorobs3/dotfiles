@@ -10,6 +10,10 @@ alias cdd='cd ~/projects/dotfiles'
 alias untargz='tar -zxvf'
 alias pycl='find . -name "__pycache__" |  xargs -L1 rm -rf && find . -name "*.pyc" |  xargs -L1 rm -rf'
 alias ffsp="git pull --rebase && lein test && git push"
+
+source <(kubectl completion bash)
+
+# make the command prompt look nice:
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -19,7 +23,9 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-source <(kubectl completion bash)
+
+
+# change all git aliases from git X to gX plus attach the autocompletion
 function_exists() {
     declare -f -F $1 > /dev/null
     return $?
@@ -71,8 +77,18 @@ function ssh-with-tunnel {
 
 alias k=kubectl
 
+
+#terragrunt aliases
 alias tp='terragrunt plan-all --terragrunt-source $REPOS_ROOT/infrastructure-modules -out=plan'
 alias ta='terragrunt apply-all --terragrunt-source $REPOS_ROOT/infrastructure-modules plan'
+
+terragrunt-taint-all () {
+  resource_prefix=$1
+  for resource in $(terragrunt state list --terragrunt-source $REPOS_ROOT/infrastructure-modules | grep "$resource_prefix.*"); do
+    echo tainting $resource
+    terragrunt taint $resource --terragrunt-source $REPOS_ROOT/infrastructure-modules;
+  done
+}
 
 
 source ~/.inputrc
