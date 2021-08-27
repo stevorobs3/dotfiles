@@ -5,11 +5,8 @@ if [ -f .docker_aliases.sh ]; then
 fi
 
 alias sbt='sbt -J-Xmx8G -J-Xms8G'
-alias cdp='cd ~/projects'
-alias cdd='cd ~/projects/dotfiles'
 alias untargz='tar -zxvf'
 alias pycl='find . -name "__pycache__" |  xargs -L1 rm -rf && find . -name "*.pyc" |  xargs -L1 rm -rf'
-alias ffsp="git pull --rebase && lein test && git push"
 
 source <(kubectl completion bash)
 
@@ -48,12 +45,10 @@ export rs="--recursive --summarize"
 
 export REPOS_ROOT=~/dev
 
-export LEIN_USERNAME=steve.rb@previ.se
 export LSCOLORS=cxfxcxdxbxcgcdabagacad
 
 export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:~/bin/
 
-export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
 
 function ssh-with-tunnel {
   host=$1
@@ -75,9 +70,6 @@ function ssh-with-tunnel {
 }
 
 
-alias k=kubectl
-
-
 #terragrunt aliases
 alias tp='terragrunt plan-all --terragrunt-source $REPOS_ROOT/infrastructure-modules -out=plan'
 alias ta='terragrunt apply-all --terragrunt-source $REPOS_ROOT/infrastructure-modules plan'
@@ -90,6 +82,12 @@ terragrunt-taint-all () {
   done
 }
 
+export TERRAGRUNT_DOWNLOAD=/tmp/.terragrunt-cache
+
+# leiningen variables
+export LEIN_SNAPSHOTS_IN_RELEASE=1
+export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
+export LEIN_USERNAME=steve.rb@previ.se
 
 source ~/.inputrc
 

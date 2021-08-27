@@ -1,6 +1,6 @@
 [user]
-        name = Steve Robinson-Burns
-        email = steverb42@gmail.com
+    name = Steve Robinson-Burns
+    email = steverb42@gmail.com
 [core]
     editor = subl --wait
 [push]
