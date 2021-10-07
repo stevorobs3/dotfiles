@@ -19,8 +19,7 @@ brew tap johanhaleby/kubetail && brew install kubetail --with-short-names
 
 # java 11
 brew update
-brew tap homebrew/cask-versions
-brew cask install java11
+brew install openjdk@11
 
 # Python3 *for welcome repo)
 brew install python3
