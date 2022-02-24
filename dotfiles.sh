@@ -21,12 +21,51 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
 
 # change all git aliases from git X to gX plus attach the autocompletion
 function_exists() {
     declare -f -F $1 > /dev/null
     return $?
 }
+
+# stuff to make git aliases work
+_git_cherry-pick ()
+{
+  __git_find_repo_path
+  if [ -f "$__git_repo_path"/CHERRY_PICK_HEAD ]; then
+    __gitcomp "$__git_cherry_pick_inprogress_options"
+    return
+  fi
+
+  __git_complete_strategy && return
+
+  case "$cur" in
+  --*)
+    __gitcomp_builtin cherry-pick "" \
+      "$__git_cherry_pick_inprogress_options"
+    ;;
+  *)
+    __git_complete_refs
+    ;;
+  esac
+}
+
+_git_ls-files ()
+{
+  case "$cur" in
+  --*)
+    __gitcomp_builtin ls-files
+    return
+    ;;
+  esac
+
+  # XXX ignore options like --modified and always suggest all cached
+  # files.
+  __git_complete_index_file "--cached"
+}
+
 
 for al in $(git config --get-regexp '^alias\.' | cut -f 1 -d ' ' | cut -f 2 -d '.'); do
     alias g$al="git $al"

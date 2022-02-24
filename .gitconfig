@@ -7,6 +7,8 @@
     default = current
 [pull]
     rebase = true
+[diff]
+    submodule = log
 
 [alias]
   a = add
@@ -45,3 +47,5 @@
   cpa = cherry-pick --abort
   cpc = cherry-pick --continue
   branchd = !git branch -D $1 && git push --delete origin $1
+  suba = submodule update
+  subar = submodule update --recursive
