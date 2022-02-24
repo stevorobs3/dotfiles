@@ -3,6 +3,7 @@
     email = steverb42@gmail.com
 [core]
     editor = subl --wait
+    excludesfile = ~/.gitignore
 [push]
     default = current
 [pull]
