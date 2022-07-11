@@ -57,3 +57,6 @@ brew install zstd
 
 # dbeaver
 brew install --cask dbeaver-community
+
+# cmake - for flatbuffer project
+brew install cmake
