@@ -60,3 +60,6 @@ brew install --cask dbeaver-community
 
 # cmake - for flatbuffer project
 brew install cmake
+
+# watch
+brew install watch
