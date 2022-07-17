@@ -10,6 +10,8 @@
     rebase = true
 [diff]
     submodule = log
+[init]
+    defaultBranch = main
 
 [alias]
   a = add
