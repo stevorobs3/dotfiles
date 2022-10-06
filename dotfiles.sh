@@ -86,7 +86,7 @@ export REPOS_ROOT=~/dev
 
 export LSCOLORS=cxfxcxdxbxcgcdabagacad
 
-export PATH=$PATH:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:/Applications/Meld.app/Contents/MacOS:~/bin/
+export PATH=~/bin/:$PATH
 
 
 function ssh-with-tunnel {
