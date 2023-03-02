@@ -5,7 +5,7 @@
 # required!!!
 brew install bash
 # restart terminal
-brew install git bash-completion@2
+brew install git git-gui bash-completion@2
 
 # git crypt
 
