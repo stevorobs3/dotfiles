@@ -1,6 +1,6 @@
 [user]
-    name = Steve Robinson-Burns
-    email = steverb42@gmail.com
+    name = Steve Robinson
+    email = steve@nyaya.tech
 [core]
     editor = subl --wait
     excludesfile = ~/.gitignore
