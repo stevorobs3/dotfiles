@@ -131,7 +131,9 @@ export TERRAGRUNT_DOWNLOAD=/tmp/.terragrunt-cache
 # leiningen variables
 export LEIN_SNAPSHOTS_IN_RELEASE=1
 export LEIN_USE_BOOTCLASSPATH=no # fix lein ultra issue
-export LEIN_USERNAME=steve.rb@previ.se
+export LEIN_USERNAME=steve@nyaya.tech
+
+alias finder="open /System/Library/CoreServices/Finder.app"
 
 source ~/.inputrc
 
