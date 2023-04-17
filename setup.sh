@@ -1,6 +1,6 @@
 # run this to install dev things
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # required!!!
 brew install bash
@@ -20,8 +20,8 @@ brew tap johanhaleby/kubetail && brew install kubetail --with-short-names
 
 # java 11
 brew update
-brew install openjdk@11
-sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+brew install openjdk@17
+#sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 
 
 # Python3 *for welcome repo)
