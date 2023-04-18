@@ -25,7 +25,7 @@
   coa = commit -v --amend
   c = checkout
   cl = clone
-  cm = checkout master
+  cm = checkout main
   cf = !git commit --fixup $(git rev-parse HEAD)
   d = diff
   dn = difftool --no-ext-diff
@@ -41,7 +41,7 @@
   pu = pull
   ri = rebase -i
   rih = !git rebase -i HEAD~${1}
-  rom = rebase origin/master
+  rom = rebase origin/main
   ra = rebase --abort
   rc = rebase --continue
   rs = rebase --skip
