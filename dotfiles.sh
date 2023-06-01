@@ -122,6 +122,8 @@ alias ta='terraform apply plan.out'
 alias tv='terraform validate'
 
 
+alias find-all='find . -not -path "./.git/*"'
+
 
 # leiningen variables
 export LEIN_SNAPSHOTS_IN_RELEASE=1
