@@ -115,18 +115,13 @@ function ssh-with-tunnel {
 
 
 #terragrunt aliases
-alias tp='terragrunt plan-all --terragrunt-source $REPOS_ROOT/infrastructure-modules -out=plan'
-alias ta='terragrunt apply-all --terragrunt-source $REPOS_ROOT/infrastructure-modules plan'
+alias ti='terraform init'
+alias tf='terraform fmt'
+alias tp='terraform plan -out=plan.out'
+alias ta='terraform apply plan.out'
+alias tv='terraform validate'
 
-terragrunt-taint-all () {
-  resource_prefix=$1
-  for resource in $(terragrunt state list --terragrunt-source $REPOS_ROOT/infrastructure-modules | grep "$resource_prefix.*"); do
-    echo tainting $resource
-    terragrunt taint $resource --terragrunt-source $REPOS_ROOT/infrastructure-modules;
-  done
-}
 
-export TERRAGRUNT_DOWNLOAD=/tmp/.terragrunt-cache
 
 # leiningen variables
 export LEIN_SNAPSHOTS_IN_RELEASE=1

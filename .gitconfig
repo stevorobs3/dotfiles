@@ -53,3 +53,4 @@
   branchd = !git branch -D $1 && git push --delete origin $1
   suba = submodule update
   subar = submodule update --recursive
+  rp = rev-parse
