@@ -17,12 +17,6 @@ parse_git_branch() {
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 
-# export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-
-# source /usr/local/etc/bash_completion.d/git-completion.bash
-
 #https://www.macinstruct.com/tutorials/how-to-enable-git-tab-autocomplete-on-your-mac/
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash

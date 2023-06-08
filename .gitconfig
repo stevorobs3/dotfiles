@@ -1,6 +1,6 @@
 [user]
     name = Steve Robinson
-    email = steve@nyaya.tech
+    email = steverb42@gmail.com
 [core]
     editor = subl --wait
     excludesfile = ~/.gitignore
@@ -53,4 +53,3 @@
   branchd = !git branch -D $1 && git push --delete origin $1
   suba = submodule update
   subar = submodule update --recursive
-  rp = rev-parse

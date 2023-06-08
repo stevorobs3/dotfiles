@@ -4,6 +4,9 @@
 
 # required!!!
 brew install bash
+# install git bash completion
+# https://www.macinstruct.com/tutorials/how-to-enable-git-tab-autocomplete-on-your-mac/
+
 # restart terminal
 brew install git git-gui bash-completion@2
 
